@@ -189,15 +189,6 @@
 
     
     
-      
-      
-        
-        
-        
-      
-
-      
-    
 
     
       
@@ -292,6 +283,804 @@
 
 
     
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/09/19/Server统计每张数据表的大小/" itemprop="url">
+                  Server统计每张数据表的大小
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-09-19T21:32:23+08:00" content="2015-09-19">
+              2015-09-19
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>在 SQL Server 中，了解每个表的记录数、占用磁盘空间大小是非常有必要的。<br>我们可以使用 sp_spaceused 这个存储过程来查询表的信息。</p>
+<p>sp_spaceused的使用方法如下：</p>
+<ol>
+<li>exec sp_spaceused ‘表名’ （SQL统计数据，大量事务操作后可能不准）</li>
+<li>exec sp_spaceused ‘表名’, true (更新表的空间大小，准确的表空大小，但可能会花些统计时间）</li>
+<li>exec sp_spaceused (数据库大小查询）</li>
+<li>exec sp_MSforeachtable “exec sp_spaceused ‘?’” (所有用户表空间表小，SQL统计数据，，大量事务操作后可能不准）</li>
+<li>exec sp_MSforeachtable “exec sp_spaceused ‘?’,true” (所有用户表空间表小，大数据库慎用）</li>
+</ol>
+<p>下面这条 SQL 语句就可以查询每一个表的信息了：</p>
+<p>CREATE TABLE #t(<br>    name VARCHAR(255),<br>    ROWS BIGINT,<br>    reserved VARCHAR(20),<br>    DATA VARCHAR(20),<br>    index_size VARCHAR(20),<br>    unused VARCHAR(20)<br>)<br>EXEC sp_MSforeachtable “insert into #t exec sp_spaceused ‘?’”<br>SELECT * FROM #t ORDER BY name<br>DROP TABLE #t</p>
+
+          
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/09/10/UML相关工具一览/" itemprop="url">
+                  【转】UML相关工具一览
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-09-10T09:32:09+08:00" content="2015-09-10">
+              2015-09-10
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>总结了全世界的各种UML相关工具，按工具名称字母排序。<br><a href="http://www.umlchina.com/Tools/Newindex1.htm" target="_blank" rel="external">点击查看详情</a></p>
+<blockquote>
+<p>统一建模语言（UML，UnifiedModelingLanguage）是面向对象软件的标准化建模语言。<br>UML因其简单、统一的特点，而且能表达软件设计中的动态和静态信息，目前已成为可视化建模语言的工业标准。<br>在软件无线电系统的开发过程中，统一建模语言可以在整个设计周期中使用，帮助设计者缩短设计时间，减少改进的成本，使软硬件分割最优。</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/09/02/CPU天梯图/" itemprop="url">
+                  CPU天梯图
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-09-02T09:32:09+08:00" content="2015-09-02">
+              2015-09-02
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><img src="http://7xlctv.com1.z0.glb.clouddn.com/images/myblogCPU天梯图-v20150101.png" alt=""></p>
+
+          
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/09/01/解决ionic的tabs在Android系统中一直处于顶部位置问题/" itemprop="url">
+                  解决ionic的tabs在Android系统中一直处于顶部位置问题
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-09-01T21:29:53+08:00" content="2015-09-01">
+              2015-09-01
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="Ionic_build_APP_u4E4B_u540E_uFF0CAndroid_u771F_u673A_u4E0A_u6D4B_u8BD5tabs_u5BFC_u822A_u59CB_u7EC8_u5904_u4E8E_u9876_u90E8_u4F4D_u7F6E"><a href="#Ionic_build_APP_u4E4B_u540E_uFF0CAndroid_u771F_u673A_u4E0A_u6D4B_u8BD5tabs_u5BFC_u822A_u59CB_u7EC8_u5904_u4E8E_u9876_u90E8_u4F4D_u7F6E" class="headerlink" title="Ionic build APP之后，Android真机上测试tabs导航始终处于顶部位置"></a>Ionic build APP之后，Android真机上测试tabs导航始终处于顶部位置</h3><p>修改测试正常后的代码如下所示：</p>
+<blockquote>
+<p>   //解决tab导航位置Android始终在顶部，IOS始终在底部的问题<br>$ionicConfigProvider.platform.ios.tabs.style(‘standard’);<br>$ionicConfigProvider.platform.ios.tabs.position(‘bottom’);<br>$ionicConfigProvider.platform.android.tabs.style(‘standard’);<br>$ionicConfigProvider.platform.android.tabs.position(‘bottom’);<br>$ionicConfigProvider.platform.ios.navBar.alignTitle(‘center’);<br>$ionicConfigProvider.platform.android.navBar.alignTitle(‘center’);<br>$ionicConfigProvider.platform.ios.backButton.previousTitleText(‘’).icon(‘ion-ios-arrow-thin-left’);<br>$ionicConfigProvider.platform.android.backButton.previousTitleText(‘’).icon(‘ion-android-arrow-back’);<br>$ionicConfigProvider.platform.ios.views.transition(‘ios’);<br>$ionicConfigProvider.platform.android.views.transition(‘android’);</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/08/31/ionic-resources/" itemprop="url">
+                  Ionic资源集合
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-08-31T15:32:09+08:00" content="2015-08-31">
+              2015-08-31
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="u6301_u7EED_u66F4_u65B0_u4E2D_u3002_u3002_u3002"><a href="#u6301_u7EED_u66F4_u65B0_u4E2D_u3002_u3002_u3002" class="headerlink" title="持续更新中。。。"></a>持续更新中。。。</h3><p><a href="http://ionicframework.com/" target="_blank" rel="external">http://ionicframework.com/</a></p>
+<p>各项优势和服务：</p>
+<p>Ionic Icons:    <a href="http://ionicons.com/" target="_blank" rel="external">http://ionicons.com/</a></p>
+<p>Doc:    <a href="http://ionicframework.com/docs/" target="_blank" rel="external">http://ionicframework.com/docs/</a></p>
+<p>Ionic creator ：<a href="http://creator.ionic.io/" target="_blank" rel="external">http://creator.ionic.io/</a></p>
+<p>Playground ： <a href="http://play.ionic.io/" target="_blank" rel="external">http://play.ionic.io/</a></p>
+<p>Learning Ionic:    <a href="http://learn.ionicframework.com/" target="_blank" rel="external">http://learn.ionicframework.com/</a></p>
+<h3 id="Android_SDK__u5728_u7EBF_u66F4_u65B0_u955C_u50CF_u670D_u52A1_u5668_u8D44_u6E90"><a href="#Android_SDK__u5728_u7EBF_u66F4_u65B0_u955C_u50CF_u670D_u52A1_u5668_u8D44_u6E90" class="headerlink" title="Android SDK 在线更新镜像服务器资源"></a>Android SDK 在线更新镜像服务器资源</h3><p>大连东软信息学院镜像服务器地址:</p>
+<ul>
+<li><a href="http://mirrors.neusoft.edu.cn" target="_blank" rel="external">http://mirrors.neusoft.edu.cn</a> 端口：80<br>北京化工大学镜像服务器地址:</li>
+<li>IPv4: <a href="http://ubuntu.buct.edu.cn/" target="_blank" rel="external">http://ubuntu.buct.edu.cn/</a> 端口：80</li>
+<li>IPv4: <a href="http://ubuntu.buct.cn/" target="_blank" rel="external">http://ubuntu.buct.cn/</a> 端口：80</li>
+<li>IPv6: <a href="http://ubuntu.buct6.edu.cn/" target="_blank" rel="external">http://ubuntu.buct6.edu.cn/</a> 端口：80<br>上海GDG镜像服务器地址:</li>
+<li><a href="http://sdk.gdgshanghai.com" target="_blank" rel="external">http://sdk.gdgshanghai.com</a> 端口：8000</li>
+</ul>
+<p>使用方法：<br>1 启动 Android SDK Manager ，打开主界面，依次选择『Tools』、『Options…』，弹出『Android SDK Manager - Settings』窗口；<br>2 在『Android SDK Manager - Settings』窗口中，在『HTTP Proxy Server」和「HTTP Proxy Port』输入框内填入上面镜像服务器地址和端口，并且选中『Force https://… sources to be fetched using <a href="http://...』复选框。设置完成后单击『Close』按钮关闭『Android" target="_blank" rel="external">http://...』复选框。设置完成后单击『Close』按钮关闭『Android</a> SDK Manager - Settings』窗口返回到主界面；<br>3 依次选择『Packages』、『Reload』。</p>
+
+          
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/08/28/PHP调试技术手册/" itemprop="url">
+                  PHP调试技术手册
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-08-28T14:47:08+08:00" content="2015-08-28">
+              2015-08-28
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>PHP大神写的关于PHP调试的文档（PDF）:</p>
+<blockquote>
+<p>借花献佛 <a href="http://www.laruence.com/2010/06/21/1608.html" target="_blank" rel="external">PHP调试技术手册发布(1.0.0 pdf)</a></p>
+<p>如果文章中的下载地址不能访问的话,可以从下面的地址中下载(不保证长期有效).</p>
+<p>链接：<a href="http://pan.baidu.com/s/1hqD27Ve" target="_blank" rel="external">http://pan.baidu.com/s/1hqD27Ve</a> 密码：5r0y</p>
+</blockquote>
+<p>— 引用自Segmentfault: <a href="http://segmentfault.com/q/1010000002897575/a-1020000002900249" target="_blank" rel="external">http://segmentfault.com/q/1010000002897575/a-1020000002900249</a></p>
+
+          
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/08/27/hexo服务启动正常浏览器却无法访问/" itemprop="url">
+                  hexo服务启动正常浏览器却无法访问
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-08-27T19:11:00+08:00" content="2015-08-27">
+              2015-08-27
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>近日基于Coding+hexo搭建了博客，今天在写完一篇文章后在本地(Windows10)用命令启动hexo服务预览下：</p>
+<blockquote>
+<p>$ hexo s</p>
+</blockquote>
+<p>ssh显示服务已经成功启动在<a href="http://localhost/的4000端口，但是浏览器中的http://localhost:4000" target="_blank" rel="external">http://localhost/的4000端口，但是浏览器中的http://localhost:4000</a> url却无法访问</p>
+<p>于是用ping命令ping <a href="http://localhost" target="_blank" rel="external">http://localhost</a></p>
+<blockquote>
+<p>ping <a href="http://localhost" target="_blank" rel="external">http://localhost</a></p>
+</blockquote>
+<p>得到的是可以ping通localhost, 再次访问了本地的IIS服务器（挂了一个在维护的比较老的ASP网站）, 该网站是绑定的8088端口，结果是可以正常访问的，所以推断问题应该没有出在localhost上</p>
+<p>于是用netstat命令查看4000端口是否被占用：</p>
+<blockquote>
+<p>netstat -ano |findstr 4000</p>
+</blockquote>
+<p>得到结果：</p>
+<p>  TCP    0.0.0.0:4000           0.0.0.0:0              LISTENING       6084<br>  TCP    127.0.0.1:4000         0.0.0.0:0              LISTENING       1568<br>  TCP    127.0.0.1:4000         127.0.0.1:49601        CLOSE_WAIT      1568<br>  TCP    127.0.0.1:4000         127.0.0.1:49602        CLOSE_WAIT      1568<br>  TCP    127.0.0.1:4000         127.0.0.1:49649        CLOSE_WAIT      1568<br>  TCP    127.0.0.1:4000         127.0.0.1:49658        CLOSE_WAIT      1568<br>  TCP    127.0.0.1:4000         127.0.0.1:49941        CLOSE_WAIT      1568<br>  TCP    127.0.0.1:4000         127.0.0.1:50078        CLOSE_WAIT      1568<br>  TCP    127.0.0.1:4000         127.0.0.1:50079        ESTABLISHED     1568<br>  TCP    127.0.0.1:49601        127.0.0.1:4000         FIN_WAIT_2      144<br>  TCP    127.0.0.1:49602        127.0.0.1:4000         FIN_WAIT_2      144<br>  TCP    127.0.0.1:49649        127.0.0.1:4000         FIN_WAIT_2      6500<br>  TCP    127.0.0.1:49658        127.0.0.1:4000         FIN_WAIT_2      6500<br>  TCP    127.0.0.1:49941        127.0.0.1:4000         FIN_WAIT_2      6500<br>  TCP    127.0.0.1:50078        127.0.0.1:4000         FIN_WAIT_2      6500<br>  TCP    127.0.0.1:50079        127.0.0.1:4000         ESTABLISHED     6500<br>  TCP    192.168.0.101:4000     192.168.0.101:49992    ESTABLISHED     6084<br>  TCP    192.168.0.101:4000     192.168.0.101:49993    ESTABLISHED     6084<br>  TCP    192.168.0.101:4000     192.168.0.101:49994    ESTABLISHED     6084<br>  TCP    192.168.0.101:4000     192.168.0.101:49995    ESTABLISHED     6084<br>  TCP    192.168.0.101:4000     192.168.0.101:49997    ESTABLISHED     6084<br>  TCP    192.168.0.101:4000     192.168.0.101:49998    ESTABLISHED     6084<br>  TCP    192.168.0.101:49992    192.168.0.101:4000     ESTABLISHED     6500<br>  TCP    192.168.0.101:49993    192.168.0.101:4000     ESTABLISHED     6500<br>  TCP    192.168.0.101:49994    192.168.0.101:4000     ESTABLISHED     6500<br>  TCP    192.168.0.101:49995    192.168.0.101:4000     ESTABLISHED     6500<br>  TCP    192.168.0.101:49997    192.168.0.101:4000     ESTABLISHED     6500<br>  TCP    192.168.0.101:49998    192.168.0.101:4000     ESTABLISHED     6500`</p>
+<p>可以看出有6条记录显示 127.0.0.1即localhost4000端口的状态是 CLOSE_WAIT， CLOSE_WAIT的状态显然是异常的，该进程的PID为1568</p>
+<p>接下来直接使用了 tasklist 命令查找对应PID的进程名：</p>
+<blockquote>
+<p>tasklist |findstr 1568</p>
+</blockquote>
+<p>得到结果：</p>
+<p>FoxitProtect.exe              1568 Services                   0     14,904 K</p>
+<p>I got you! 应该就是这货占用了原本属于hexo服务的端口，这个是福昕阅读器的一个进程，早前因为要看PDF重新装了这货</p>
+<p>找到“罪魁祸首”就好办了，直接kill掉就行了</p>
+<blockquote>
+<p>taskkill /T /F /PID 1568 强制干掉PID是1568的进程</p>
+</blockquote>
+<p>重启hexo服务：</p>
+<blockquote>
+<p>$ hexo s</p>
+</blockquote>
+<p>打开<a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a> ，搞定，瞬间阴转晴有木有！</p>
+
+          
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/08/26/Markdown语法的简要规则/" itemprop="url">
+                  Markdown语法的简要规则
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-08-26T13:50:40+08:00" content="2015-08-26">
+              2015-08-26
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="u6807_u9898"><a href="#u6807_u9898" class="headerlink" title="标题"></a>标题</h1><p><img src="http://ww1.sinaimg.cn/large/6aee7dbbgw1effeaclhiyj20eh09cwez.jpg" alt="标题"><br>标题是每篇文章都需要也是最常用的格式，在 Markdown 中，如果一段文字被定义为标题，只要在这段文字前加 # 号即可。</p>
+<blockquote>
+<h1 id="u4E00_u7EA7_u6807_u9898"><a href="#u4E00_u7EA7_u6807_u9898" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="u4E8C_u7EA7_u6807_u9898"><a href="#u4E8C_u7EA7_u6807_u9898" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="u4E09_u7EA7_u6807_u9898"><a href="#u4E09_u7EA7_u6807_u9898" class="headerlink" title="三级标题"></a>三级标题</h3></blockquote>
+<p>以此类推，总共六级标题，建议在井号后加一个空格，这是最标准的 Markdown 语法。</p>
+<h1 id="u5217_u8868"><a href="#u5217_u8868" class="headerlink" title="列表"></a>列表</h1><p><img src="http://ww4.sinaimg.cn/large/6aee7dbbgw1effew5aftij20d80bz3yw.jpg" alt="列表"><br>熟悉 HTML 的同学肯定知道有序列表与无序列表的区别，在 Markdown 下，列表的显示只需要在文字前加上 - 或 * 即可变为无序列表，有序列表则直接在文字前加1. 2. 3. 符号要和文字之间加上一个字符的空格。</p>
+<h1 id="u5F15_u7528"><a href="#u5F15_u7528" class="headerlink" title="引用"></a>引用</h1><p>如果你需要引用一小段别处的句子，那么就要用引用的格式。</p>
+<blockquote>
+<p>例如这样</p>
+</blockquote>
+<p>只需要在文本前加入 &gt; 这种尖括号（大于号）即可</p>
+<p><img src="http://ww3.sinaimg.cn/large/6aee7dbbgw1effezhonxlj20e009c3yu.jpg" alt="引用"></p>
+<h1 id="u56FE_u7247_u4E0E_u94FE_u63A5"><a href="#u56FE_u7247_u4E0E_u94FE_u63A5" class="headerlink" title="图片与链接"></a>图片与链接</h1><p>插入链接与插入图片的语法很像，区别在一个 !号</p>
+<p>图片为：<code>![](){ImgCap}{/ImgCap}</code></p>
+<p>链接为：<code>[]()</code></p>
+<p>插入图片的地址需要图床，这里推荐围脖图床修复计划 与 CloudApp 的服务，生成URL地址即可。</p>
+<p><img src="http://ww2.sinaimg.cn/large/6aee7dbbgw1efffa67voyj20ix0ctq3n.jpg" alt="图片与链接"></p>
+<h1 id="u7C97_u4F53_u4E0E_u659C_u4F53"><a href="#u7C97_u4F53_u4E0E_u659C_u4F53" class="headerlink" title="粗体与斜体"></a>粗体与斜体</h1><p>Markdown 的粗体和斜体也非常简单，用两个 <em> 包含一段文本就是粗体的语法，用一个 </em> 包含一段文本就是斜体的语法。</p>
+<p>例如：<strong>这里是粗体</strong> <em>这里是斜体</em></p>
+<h1 id="u8868_u683C"><a href="#u8868_u683C" class="headerlink" title="表格"></a>表格</h1><p>表格是我觉得 Markdown 比较累人的地方，例子如下：</p>
+<p><img src="http://7xlctv.com1.z0.glb.clouddn.com/images/myblogmarkdown_table.jpg" alt=""></p>
+<p>这种语法生成的表格如下：</p>
+<table>
+<thead>
+<tr>
+<th>Tables</th>
+<th style="text-align:center">Are</th>
+<th style="text-align:right">Cool</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>col 3 is</td>
+<td style="text-align:center">right-aligned</td>
+<td style="text-align:right">$1600</td>
+</tr>
+<tr>
+<td>col 2 is</td>
+<td style="text-align:center">centered</td>
+<td style="text-align:right">$12</td>
+</tr>
+<tr>
+<td>zebra stripes</td>
+<td style="text-align:center">are neat</td>
+<td style="text-align:right">$1</td>
+</tr>
+</tbody>
+</table>
+<h1 id="u4EE3_u7801_u6846"><a href="#u4EE3_u7801_u6846" class="headerlink" title="代码框"></a>代码框</h1><p>如果你是个程序猿，需要在文章里优雅的引用代码框，在 Markdown下实现也非常简单，只需要用两个 ` 把中间的代码包裹起来。图例：</p>
+<p><img src="http://ww3.sinaimg.cn/large/6aee7dbbgw1effg1lsa97j20lt0a8dgs.jpg" alt="代码框"></p>
+<h1 id="u5206_u5272_u7EBF"><a href="#u5206_u5272_u7EBF" class="headerlink" title="分割线"></a>分割线</h1><p>分割线的语法只需要三个 * 号，例如：</p>
+<hr>
+<blockquote>
+<p>到这里，Markdown 的基本语法在日常的使用中基本就没什么大问题了，只要多加练习，配合好用的工具，写起东西来肯定会行云流水。更多的语&gt; 法规则，其实 Mou 的 Help 文档栗子很好，当你第一次使用 Mou 时，就会显示该文档。可以用来对用的查找和学习。</p>
+</blockquote>
+<h1 id="u56FE_u7247_u4E0A_u4F20_u89E3_u51B3_u65B9_u6848"><a href="#u56FE_u7247_u4E0A_u4F20_u89E3_u51B3_u65B9_u6848" class="headerlink" title="图片上传解决方案"></a>图片上传解决方案</h1><ul>
+<li><a href="http://yotuku.cn/" target="_blank" rel="external">极简图床</a></li>
+<li><a href="http://www.qiniu.com/" target="_blank" rel="external">七牛云存储</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
 
   </section>
 
@@ -334,7 +1123,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">1</span>
+              <span class="site-state-item-count">9</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -348,7 +1137,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-count">9</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
